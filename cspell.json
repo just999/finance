@@ -1,0 +1,19 @@
+{
+  "version": "0.2",
+  "ignorePaths": [
+    "**/Users/justin/AppData/Roaming/Code/User/**",
+    "**/.vscode/settings.json",
+    "**/react with css module.code-snippets"
+  ],
+  "dictionaryDefinitions": [],
+  "dictionaries": [],
+  "words": [
+    "ghehbauvuhpcctunwvwd",
+    "pexels",
+    "plpgsql",
+    "Shadcn",
+    "supabase"
+  ],
+  "ignoreWords": [],
+  "import": []
+}
