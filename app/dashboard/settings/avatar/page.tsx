@@ -25,9 +25,9 @@ const AvatarPage = () => {
     <>
       <h1 className='mb-8 text-4xl font-semibold'>Avatar</h1>
       <form action={formAction} className='space-y-4'>
-        {state?.error && <AlertError state={state} />}
+        {state?.error && <AlertError state={state} type='noAuth' />}
         {!state?.error && state?.message && state?.message?.length > 0 && (
-          <AlertSuccess state={state} />
+          <AlertSuccess state={state} type='noAuth' />
         )}
         <Input type='file' name='avatar' id='avatar' required />
 

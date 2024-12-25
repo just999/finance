@@ -1,16 +1,19 @@
-import { sizes, variants } from '@/lib/helpers';
-import { cn } from '@/lib/utils';
-import { ChevronLeft } from 'lucide-react';
-import Link from 'next/link';
+import { auth } from '@/auth';
+import { redirect } from 'next/navigation';
 
 type AuthLayoutProps = {
   children: React.ReactNode;
 };
 
-const AuthLayout = ({ children }: AuthLayoutProps) => {
+const AuthLayout = async ({ children }: AuthLayoutProps) => {
+  const session = await auth();
+
+  if (!!session?.user?.email) {
+    redirect('/my-account');
+  }
   return (
     <main>
-      <div className='absolute left-8 top-8'>
+      {/* <div className='absolute left-8 top-8'>
         <Link
           href='/'
           className={cn(
@@ -22,9 +25,9 @@ const AuthLayout = ({ children }: AuthLayoutProps) => {
           <ChevronLeft className='h-4 w-4' />
           <span>Back</span>
         </Link>
-      </div>
+      </div> */}
 
-      <div className='mt-8'>{children}</div>
+      {children}
     </main>
   );
 };

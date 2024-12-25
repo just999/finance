@@ -13,7 +13,7 @@ type TransactionItemProps = {
   amount: number;
   category?: string;
   description?: string;
-  onRemoved: () => void;
+  onRemoved?: () => void;
 };
 
 const TransactionItem = ({
@@ -69,7 +69,9 @@ const TransactionItem = ({
         >
           <Pencil className='h-4 w-4' />
         </Link>
-        {id && <TransactionItemRemoveButton id={id} onRemoved={onRemoved} />}
+        {id && onRemoved && (
+          <TransactionItemRemoveButton id={id} onRemoved={onRemoved} />
+        )}
       </div>
     </div>
   );

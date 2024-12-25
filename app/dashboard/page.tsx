@@ -31,7 +31,7 @@ const DashboardPage = async ({ searchParams }: DashboardPageProps) => {
   const range = searchParam?.range ?? settings?.defaultView ?? 'last30days';
 
   return (
-    <div className='space-y-8'>
+    <div className='mt-28 space-y-4'>
       <section className='flex items-center justify-between'>
         <h1 className='text-4xl font-semibold'>Summary</h1>
         <aside>

@@ -28,9 +28,9 @@ const SettingsForm = ({ defaults }: SettingsFormProps) => {
   const [state, formAction] = useActionState(updateSettings, initialState);
   return (
     <form className='space-y-4' action={formAction}>
-      {state?.error && <AlertError state={state} />}
+      {state?.error && <AlertError state={state} type='noAuth' />}
       {!state?.error && state?.message && state?.message?.length > 0 && (
-        <AlertSuccess state={state} />
+        <AlertSuccess state={state} type='noAuth' />
       )}
       <Label htmlFor='fullName'>User Full Name</Label>
       <Input

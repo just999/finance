@@ -6,11 +6,13 @@ import Alert from './alert';
 
 type AlertSuccessProps = {
   state: AvatarPageProps;
+  type: string;
 };
 
-const AlertSuccess = ({ state }: AlertSuccessProps) => {
+const AlertSuccess = ({ state, type }: AlertSuccessProps) => {
   return (
     <Alert
+      type={type}
       icon={
         <Check className='h-6 w-6 text-emerald-700 dark:text-emerald-300' />
       }

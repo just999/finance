@@ -7,14 +7,14 @@ import { useActionState } from 'react';
 
 export type LoginActionState = {
   message?: string;
-  email?: string;
+  // email?: string;
   // password?: string;
   errors?: boolean;
 };
 
 const initialState = {
   message: '',
-  email: '',
+  // email: '',
   // password: '',
   errors: false,
 };

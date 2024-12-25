@@ -30,3 +30,14 @@ export type UserMetadataProps = {
     defaultView?: string[];
   };
 };
+
+export type AuthActionState = {
+  message?: string;
+  errors?: boolean;
+};
+
+export type UpdatePasswordProps = {
+  token?: string;
+  password?: string;
+  passwordConfirm?: string;
+};

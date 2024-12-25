@@ -21,7 +21,7 @@ const SubmitButton = (props: SubmitButtonProps) => {
       disabled={pending}
     >
       {pending && <Loader className='h-4 w-4 animate-spin' />}
-      <span>{props.children}</span>
+      <span className='flex items-center gap-1'>{props.children}</span>
     </Button>
   );
 };

@@ -25,7 +25,7 @@ export const metadata: Metadata = {
 
 const PlaygroundPage = () => {
   return (
-    <main className='mb-44 space-y-8'>
+    <main className='container mx-auto mb-44 mt-28 max-w-4xl space-y-8'>
       <h1 className='mt-8 text-4xl'>Playground</h1>
 
       <div>

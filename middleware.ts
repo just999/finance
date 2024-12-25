@@ -1,4 +1,5 @@
 import type { NextRequest } from 'next/server';
+import { auth } from './auth';
 import { updateSession } from './lib/supabase/middleware';
 import { createClient } from './lib/supabase/server';
 
@@ -8,16 +9,31 @@ export async function middleware(request: NextRequest) {
 
   const supabase = await createClient();
 
-  const {
-    data: { user },
-  } = await supabase.auth.getUser();
+  const { pathname } = request.nextUrl;
+  console.log('🚀 ~ middleware ~ pathname:', pathname);
 
-  if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
+  // const {
+  //   data: { user },
+  // } = await supabase.auth.getUser();
+
+  const session = await auth();
+
+  const email = session?.user?.email;
+
+  if (!email && request.nextUrl.pathname.startsWith('/dashboard')) {
     return Response.redirect(new URL('/login', request.url));
   }
-  if (user && request.nextUrl.pathname.startsWith('/login')) {
-    return Response.redirect(new URL('/dashboard', request.url));
+  if (!email && request.nextUrl.pathname.startsWith('/my-account')) {
+    return Response.redirect(new URL('/login', request.url));
   }
+
+  // if (email && request.nextUrl.pathname.startsWith('/login')) {
+  //   return Response.redirect(new URL('/my-account', request.url));
+  // }
+
+  // if (pathname === '/') {
+  //   return Response.redirect(new URL('/dashboard', request.url));
+  // }
 
   return await updateSession(request);
 }

@@ -161,19 +161,5 @@
       }
     ]
   },
-  "typescript.tsdk": "node_modules\\typescript\\lib",
-  "workbench.colorCustomizations": {
-    "activityBar.foreground": "#75E8C4",
-    "activityBar.background": "#000000",
-    "activityBar.inactiveForeground": "#006925",
-    "activityBarBadge.foreground": "#00111F",
-    "activityBarBadge.background": "#62B6FD",
-    "statusBar.foreground": "#9AFFC8",
-    "statusBar.background": "#0F8545",
-    "statusBarItem.hoverBackground": "#155A4C",
-    "statusBarItem.remoteForeground": "#B1EEFF",
-    "statusBarItem.remoteBackground": "#1A728A",
-    "statusBar.debuggingForeground": "#000000",
-    "statusBar.debuggingBackground": "#46BC7C"
-  }
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }

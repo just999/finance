@@ -2,13 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+html,
+body,
+:root {
+  height: 100%;
+}
+
 body {
-  @apply container mx-auto max-w-4xl bg-white text-black dark:bg-slate-950 dark:text-slate-100;
+  @apply bg-white text-black dark:bg-slate-950 dark:text-slate-100;
 }
 
 @layer base {
   :root {
-
     --background: 0 0% 100%;
 
     --foreground: 20 14.3% 4.1%;
@@ -57,10 +62,11 @@ body {
 
     --chart-5: 27 87% 67%;
 
-    --radius: 0.5rem
+    --radius: 0.5rem;
+
+    --svg-shadow-color: rgb(0 0 0 / 0.4);
   }
   .dark {
-
     --background: 20 14.3% 4.1%;
 
     --foreground: 60 9.1% 97.8%;
@@ -107,7 +113,9 @@ body {
 
     --chart-4: 280 65% 60%;
 
-    --chart-5: 340 75% 55%
+    --chart-5: 340 75% 55%;
+
+    --svg-shadow-color: rgb(255 255 255 / 0.2);
   }
 }
 
@@ -117,5 +125,15 @@ body {
   }
   body {
     @apply bg-background text-foreground;
+  }
+}
+
+.svg {
+  filter: drop-shadow(3px 5px 2px var(--svg-shadow-color));
+}
+
+@layer utilities {
+  .nav__link {
+    @apply relative block w-fit font-medium after:absolute after:block after:h-[1px] after:w-full after:origin-right after:scale-x-0 after:bg-pink-600 after:transition after:duration-300 after:content-[''] after:hover:scale-x-100;
   }
 }
