@@ -79,8 +79,6 @@ export async function register(formData: RegisterSchema) {
 
   try {
     const validated = registerSchema.safeParse(formData);
-    console.log('🚀 ~ register ~ validated:', validated);
-
     const email = validated.data?.email;
     const password = validated.data?.password;
     const passwordConfirm = validated.data?.passwordConfirm;
@@ -143,8 +141,6 @@ export async function loginWithCredentials(formData: SigninSchema) {
 
   try {
     const validated = signinSchema.safeParse(formData);
-    console.log('🚀 ~ signin ~ validated:', validated);
-
     const email = validated.data?.email;
     const password = validated.data?.password;
     const token = validated.data?.token;
@@ -202,8 +198,6 @@ export const logout = async () => {
 
 // !CHANGE PASSWORD ACTION
 export const changePassword = async (formData: ChangePasswordSchema) => {
-  console.log('🚀 ~ changePassword ~ formData:', formData);
-
   const session = await auth();
   if (!session?.user?.id) {
     return {
@@ -290,8 +284,6 @@ export const resetPassword = async (formData: ResetPasswordSchema) => {
   const passwordResetToken = randomBytes(32).toString('hex');
 
   const tokenExpiry = new Date(Date.now() + 3600000);
-  console.log('🚀 ~ resetPassword ~ tokenExpiry:', tokenExpiry);
-
   await db
     .insert(passwordResetTokens)
     .values({
@@ -319,8 +311,6 @@ export const resetPassword = async (formData: ResetPasswordSchema) => {
 <a href='${resetLink}'>${resetLink}</a>
     `,
   });
-
-  console.log('🚀 ~ resetPassword ~ passwordResetToken:', passwordResetToken);
 };
 
 // ?UPDATE PASSWORD ACTION

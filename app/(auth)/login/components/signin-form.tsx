@@ -54,8 +54,6 @@ const SigninForm = () => {
     },
   });
   const handleSubmit = async (data: SigninSchema) => {
-    console.log('🚀 ~ handleSubmit ~ data:', data);
-
     const preLoginCheckRes = await preLoginCheck({
       email: data.email,
       password: data.password,
@@ -79,7 +77,7 @@ const SigninForm = () => {
         });
       } else {
         await update();
-        router.refresh();
+        // router.refresh();
         router.push('/dashboard');
       }
     }
@@ -103,12 +101,10 @@ const SigninForm = () => {
       });
     } else {
       await update();
-      router.refresh();
+      // router.refresh();
       router.push('/my-account');
     }
   };
-
-  console.log('🚀 ~ SigninForm ~ update:', update);
   return (
     <>
       {step === 1 && (

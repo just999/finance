@@ -37,8 +37,6 @@ const TwoFactorAuthForm = ({ twoFactorActivated }: TwoFactorAuthFormProps) => {
     setStep(2);
     setCode(res.twoFactorSecret ?? '');
   };
-  console.log('🚀 ~ TwoFactorAuthForm ~ code:', code);
-
   const handleOTPSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 

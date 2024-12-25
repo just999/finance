@@ -34,15 +34,8 @@ const PasswordResetForm = () => {
   });
 
   const handleSubmit = async (data: ResetPasswordSchema) => {
-    console.log('🚀 ~ handleSubmit ~ data:', data);
-
     await resetPassword(data);
   };
-  console.log(
-    '🚀 ~ PasswordResetForm ~ searchParams:',
-    searchParams.get('email')
-  );
-
   return form.formState.isSubmitSuccessful ? (
     <CardContent>password reset sent to {form.getValues('email')}</CardContent>
   ) : (

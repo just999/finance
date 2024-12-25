@@ -1,6 +1,5 @@
 import Logo from '@/components/assets/logo/logo';
 
-import ServerThemeWrapper from '@/components/server-theme-wrapper';
 import {
   footerAboutUs,
   footerContactInfoLinks,
@@ -68,7 +67,6 @@ const Footer = () => {
         </div>
 
         <div className='mt-8 flex flex-col items-center justify-between border-t pt-8 text-sm text-gray-600 md:flex-row'>
-          <ServerThemeWrapper />
           <p>Copyright &copy; {year} Cat. ALl rights reserved </p>
           <div className='mt-4 flex items-center space-x-4 md:mt-0'>
             <span>Social: </span>

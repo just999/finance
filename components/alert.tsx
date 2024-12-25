@@ -14,7 +14,6 @@ type AlertProps = {
 
 const Alert = ({ title, icon, children, type }: AlertProps) => {
   const pathname = useParams();
-  console.log('🚀 ~ Alert ~ pathname:', pathname);
   return (
     <Card className='flex flex-col items-center justify-center space-y-2 rounded-md border border-gray-200 p-2 dark:border-gray-800'>
       <CardHeader>

@@ -4,6 +4,7 @@ import Logo from '@/components/assets/logo/logo';
 import { useEffect, useState } from 'react';
 
 import LogoutButton from '@/app/(logged-in)/logout-button';
+import ClientThemeWrapper from '@/components/client-theme-wrapper';
 import { navLinks } from '@/lib/helpers';
 import { AlignRight, Loader } from 'lucide-react';
 import { useSession } from 'next-auth/react';
@@ -13,20 +14,10 @@ type NavProps = {
   openNav: () => void;
 };
 
-type UserSessionProps = {
-  user: {
-    email: string;
-    id: string;
-  };
-};
-
 const Nav = ({ openNav }: NavProps) => {
   const [navBg, setNavBg] = useState(false);
 
   const { data: session, status } = useSession();
-  console.log('🚀 ~ Nav ~ status:', status);
-  console.log('🚀 ~ Nav ~ session:', session);
-
   useEffect(() => {
     const handler = () => {
       if (window.scrollY >= 90) setNavBg(true);
@@ -60,6 +51,7 @@ const Nav = ({ openNav }: NavProps) => {
           ))}
         </div>
         <div className='flex items-center space-x-4'>
+          <ClientThemeWrapper />
           {status === 'loading' ? (
             <div className='flex animate-pulse gap-2 rounded-full bg-gray-200 px-6 py-2 md:px-8 md:py-2.5'>
               <Loader size={18} className='animate-spin' />

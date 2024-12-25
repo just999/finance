@@ -11,13 +11,21 @@ export type ThemeProps = {
 
 const useDarkMode = ({ defaultTheme }: ThemeProps) => {
   const [theme, setTheme] = useState<'dark' | 'light'>(defaultTheme);
-  const [_, setCookie] = useCookies(['theme']);
+  const [cookies, setCookie] = useCookies(['theme']);
 
   useEffect(() => {
     // Set initial theme on mount
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
-  }, [theme]);
+
+    const storedTheme = cookies.theme as Theme;
+
+    if (storedTheme) {
+      setTheme(storedTheme);
+      document.documentElement.classList.remove('light', 'dark');
+      document.documentElement.classList.add(theme);
+    } else {
+      setCookie('theme', defaultTheme);
+    }
+  }, [theme, cookies, defaultTheme, setCookie]);
 
   const setAndSaveTheme = (theme: 'dark' | 'light') => {
     setTheme(theme);

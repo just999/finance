@@ -10,8 +10,6 @@ export async function middleware(request: NextRequest) {
   const supabase = await createClient();
 
   const { pathname } = request.nextUrl;
-  console.log('🚀 ~ middleware ~ pathname:', pathname);
-
   // const {
   //   data: { user },
   // } = await supabase.auth.getUser();

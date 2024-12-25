@@ -60,8 +60,6 @@ const SignupForm = () => {
     //   password: '12311111',
     //   passwordConfirm: '111111111',
     // });
-    console.log('🚀 ~ handleSubmit ~ res:', res);
-
     if (res) setResult(res);
 
     if (res?.error) {
