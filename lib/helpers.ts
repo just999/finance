@@ -94,6 +94,11 @@ export const navLinks = [
     url: '#',
     label: 'Contact',
   },
+  {
+    id: 7,
+    url: '/my-account',
+    label: 'My-Account',
+  },
 ];
 
 export const whyChooseCard = [

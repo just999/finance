@@ -33,7 +33,7 @@ const Nav = ({ openNav }: NavProps) => {
 
   return (
     <div
-      className={`fixed ${navBg ? 'bg-white shadow-md' : 'fixed'} z-[1000] h-[12vh] w-full transition-all duration-200 dark:bg-slate-900 dark:text-slate-100`}
+      className={`fixed ${navBg ? 'bg-white shadow-md' : 'fixed'} z-[1000] h-[8vh] w-full transition-all duration-200 dark:bg-slate-900 dark:text-slate-100`}
     >
       <div className='mx-auto flex h-full w-[90%] items-center justify-between xl:w-[80%]'>
         {/* <div className='mx-auto flex h-full w-[90%] items-center justify-between xl:w-[80%]'> */}
@@ -44,11 +44,12 @@ const Nav = ({ openNav }: NavProps) => {
           </h1> */}
         </Link>
         <div className='hidden items-center space-x-10 lg:flex'>
-          {navLinks.map((link) => (
-            <Link href={link.url} key={link.id}>
-              <p className='nav__link text-xs'>{link.label}</p>
-            </Link>
-          ))}
+          {status === 'authenticated' &&
+            navLinks.map((link) => (
+              <Link href={link.url} key={link.id}>
+                <p className='nav__link text-xs'>{link.label}</p>
+              </Link>
+            ))}
         </div>
         <div className='flex items-center space-x-4'>
           <ClientThemeWrapper />
@@ -61,7 +62,7 @@ const Nav = ({ openNav }: NavProps) => {
             <Link
               href='/register'
               // variant='ghost'
-              className='rounded-full bg-blue-700 px-6 py-2 text-base font-semibold text-white transition-all duration-200 hover:bg-blue-900 md:px-8 md:py-2.5'
+              className='rounded-full bg-blue-700 px-2 py-1 text-sm font-semibold text-white transition-all duration-200 hover:bg-blue-900 dark:bg-sky-900 dark:text-stone-200 md:px-4 md:py-1.5'
             >
               Join Now
             </Link>

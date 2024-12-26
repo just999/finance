@@ -14,7 +14,7 @@ type FooterProps = unknown;
 const Footer = () => {
   const year = new Date().getFullYear();
   return (
-    <div className='bg-white py-10 dark:bg-slate-900 dark:text-slate-200'>
+    <div className='bg-white pb-4 pt-10 dark:bg-slate-900 dark:text-slate-200'>
       <div className='mx-auto w-[90%] px-4 sm:px-6 lg:px-8'>
         <div className='grid grid-cols-1 gap-8 md:grid-cols-3 lg:grid-cols-4'>
           <div>
@@ -66,7 +66,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className='mt-8 flex flex-col items-center justify-between border-t pt-8 text-sm text-gray-600 md:flex-row'>
+        <div className='mt-4 flex flex-col items-center justify-between border-t pt-4 text-sm text-gray-600 md:flex-row'>
           <p>Copyright &copy; {year} Cat. ALl rights reserved </p>
           <div className='mt-4 flex items-center space-x-4 md:mt-0'>
             <span>Social: </span>
